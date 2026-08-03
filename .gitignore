@@ -1,0 +1,16 @@
+target/
+*.class
+*.aot
+*.aot.config
+.idea/
+*.iml
+.vscode/
+cp.txt
+
+# model weights: large, and not ours to redistribute (see scripts/fetch-model.ps1)
+models/
+
+# captured frames may contain the user; never commit them
+spike-frame.png
+*.png
+!docs/*.png
