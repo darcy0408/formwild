@@ -6,6 +6,9 @@ target/
 *.iml
 .vscode/
 cp.txt
+coach-out.log
+coach-err.log
+formwild-sessions.csv
 
 # model weights: large, and not ours to redistribute (see scripts/fetch-model.ps1)
 models/

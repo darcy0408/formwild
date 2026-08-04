@@ -138,7 +138,7 @@ public final class SquatAnalyzer {
      * <p>Averaging rather than picking one leg means a single badly-tracked limb degrades
      * the reading instead of destroying it.
      */
-    static OptionalDouble kneeAngle(Pose pose) {
+    public static OptionalDouble kneeAngle(Pose pose) {
         OptionalDouble left = pose.angle(Joint.LEFT_HIP, Joint.LEFT_KNEE, Joint.LEFT_ANKLE);
         OptionalDouble right = pose.angle(Joint.RIGHT_HIP, Joint.RIGHT_KNEE, Joint.RIGHT_ANKLE);
         if (left.isPresent() && right.isPresent()) {

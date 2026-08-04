@@ -16,6 +16,7 @@ import java.nio.file.Path;
  *
  * <p>Modes:
  * <ul>
+ *   <li>{@code --coach} open the coach window (default)</li>
  *   <li>{@code --diagnose [seconds]} run the real pipeline headless and report throughput</li>
  *   <li>{@code --version} print the running JDK (contest verification)</li>
  * </ul>
@@ -25,11 +26,12 @@ public final class Main {
     private static final Path DEFAULT_MODEL = Path.of("models", "movenet-lightning.onnx");
 
     public static void main(String[] args) throws Exception {
-        String mode = args.length > 0 ? args[0] : "--diagnose";
+        String mode = args.length > 0 ? args[0] : "--coach";
 
         switch (mode) {
             case "--version" -> printVersion();
             case "--diagnose" -> diagnose(args.length > 1 ? Integer.parseInt(args[1]) : 10);
+            case "--coach" -> coach();
             case "--help", "-h" -> printHelp();
             default -> {
                 System.err.println("Unknown mode: " + mode);
@@ -127,10 +129,23 @@ public final class Main {
                         .map(FormFault::cue).reduce((a, b) -> a + "; " + b).orElse(""));
     }
 
+    /** Opens the coach window. */
+    private static void coach() {
+        if (!Files.exists(DEFAULT_MODEL)) {
+            System.err.println("Model not found at " + DEFAULT_MODEL.toAbsolutePath());
+            System.err.println("Run scripts\fetch-model.ps1 first.");
+            System.exit(1);
+        }
+        PoseEstimator.loadNatives();
+        javax.swing.SwingUtilities.invokeLater(
+                () -> new dev.formwild.ui.CoachWindow(DEFAULT_MODEL).start());
+    }
+
     private static void printHelp() {
         System.out.println("""
                 FormWild — a webcam form coach for squats
 
+                  --coach               open the coach window (default)
                   --diagnose [seconds]  run the pipeline headless and report throughput
                   --version             runtime and Java version
 
