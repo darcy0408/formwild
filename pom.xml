@@ -54,10 +54,8 @@
         <version>3.13.0</version>
         <configuration>
           <release>26</release>
-          <!-- StructuredTaskScope is a preview API in Java 26 (JEP 505). -->
-          <compilerArgs>
-            <arg>--enable-preview</arg>
-          </compilerArgs>
+          <!-- No preview flags: every Java 26 feature this project uses — Gatherers,
+               FFM, virtual threads, record patterns, unnamed patterns — is final. -->
         </configuration>
       </plugin>
 
@@ -65,9 +63,6 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>3.2.5</version>
-        <configuration>
-          <argLine>--enable-preview</argLine>
-        </configuration>
       </plugin>
 
       <plugin>

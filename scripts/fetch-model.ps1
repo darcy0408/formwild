@@ -24,4 +24,4 @@ Invoke-WebRequest -Uri $url -OutFile $out -UseBasicParsing
 $sizeMb = (Get-Item $out).Length / 1MB
 Write-Output ("Saved {0} ({1:N1} MB)" -f $out, $sizeMb)
 Write-Output ""
-Write-Output "Verify with:  mvn -q compile; java --enable-preview --enable-native-access=ALL-UNNAMED -cp ""target\classes;$(Get-Content cp.txt)"" dev.formwild.spike.SpikePose"
+Write-Output "Verify with:  mvn clean package; java --enable-native-access=ALL-UNNAMED -jar target\formwild.jar --diagnose 5"

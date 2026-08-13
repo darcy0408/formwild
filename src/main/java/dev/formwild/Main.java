@@ -133,7 +133,7 @@ public final class Main {
     private static void coach() {
         if (!Files.exists(DEFAULT_MODEL)) {
             System.err.println("Model not found at " + DEFAULT_MODEL.toAbsolutePath());
-            System.err.println("Run scripts\fetch-model.ps1 first.");
+            System.err.println("Run scripts\\fetch-model.ps1 first.");
             System.exit(1);
         }
         PoseEstimator.loadNatives();

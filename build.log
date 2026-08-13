@@ -1,0 +1,65 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -----------------------< dev.formwild:formwild >------------------------
+[INFO] Building FormWild 1.0.0
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.2.0:clean (default-clean) @ formwild ---
+[INFO] Deleting C:\dev\questions\formwild\target
+[INFO] 
+[INFO] --- resources:3.4.0:resources (default-resources) @ formwild ---
+[INFO] skip non existing resourceDirectory C:\dev\questions\formwild\src\main\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ formwild ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 17 source files with javac [debug release 26] to target\classes
+[INFO] 
+[INFO] --- resources:3.4.0:testResources (default-testResources) @ formwild ---
+[INFO] skip non existing resourceDirectory C:\dev\questions\formwild\src\test\resources
+[INFO] 
+[INFO] --- compiler:3.13.0:testCompile (default-testCompile) @ formwild ---
+[INFO] Recompiling the module because of changed dependency.
+[INFO] Compiling 3 source files with javac [debug release 26] to target\test-classes
+[INFO] 
+[INFO] --- surefire:3.2.5:test (default-test) @ formwild ---
+[INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running dev.formwild.analysis.AngleSmootherTest
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s -- in dev.formwild.analysis.AngleSmootherTest
+[INFO] Running dev.formwild.analysis.SquatAnalyzerTest
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s -- in dev.formwild.analysis.SquatAnalyzerTest
+[INFO] Running dev.formwild.session.SessionLogTest
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s -- in dev.formwild.session.SessionLogTest
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] 
+[INFO] --- jar:3.5.0:jar (default-jar) @ formwild ---
+[INFO] Building jar: C:\dev\questions\formwild\target\formwild.jar
+[INFO] 
+[INFO] --- shade:3.5.3:shade (default) @ formwild ---
+[INFO] Including org.openpnp:opencv:jar:4.9.0-0 in the shaded jar.
+[INFO] Including com.microsoft.onnxruntime:onnxruntime:jar:1.22.0 in the shaded jar.
+[WARNING] formwild.jar, onnxruntime-1.22.0.jar, opencv-4.9.0-0.jar define 1 overlapping resource: 
+[WARNING]   - META-INF/MANIFEST.MF
+[WARNING] maven-shade-plugin has detected that some files are
+[WARNING] present in two or more JARs. When this happens, only one
+[WARNING] single version of the file is copied to the uber jar.
+[WARNING] Usually this is not harmful and you can skip these warnings,
+[WARNING] otherwise try to manually exclude artifacts based on
+[WARNING] mvn dependency:tree -Ddetail=true and the above output.
+[WARNING] See https://maven.apache.org/plugins/maven-shade-plugin/
+[INFO] Replacing original artifact with shaded artifact.
+[INFO] Replacing C:\dev\questions\formwild\target\formwild.jar with C:\dev\questions\formwild\target\formwild-1.0.0-shaded.jar
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  25.569 s
+[INFO] Finished at: 2026-08-12T19:15:04-06:00
+[INFO] ------------------------------------------------------------------------
