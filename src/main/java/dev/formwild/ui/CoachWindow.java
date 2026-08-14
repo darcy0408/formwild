@@ -50,6 +50,7 @@ public final class CoachWindow extends JFrame {
     private volatile boolean running = true;
     private volatile SquatAnalyzer analyzer = new SquatAnalyzer();
     private Thread pipeline;
+    private Timer repaint;
 
     public CoachWindow(Path modelPath) {
         super("FormWild — squat form coach");
@@ -132,7 +133,8 @@ public final class CoachWindow extends JFrame {
 
     public void start() {
         setVisible(true);
-        new Timer(1000 / REPAINT_HZ, event -> panel.repaint()).start();
+        repaint = new Timer(1000 / REPAINT_HZ, event -> panel.repaint());
+        repaint.start();
         pipeline = Thread.ofVirtual().name("pipeline").start(this::run);
     }
 
@@ -223,6 +225,9 @@ public final class CoachWindow extends JFrame {
                 Thread.currentThread().interrupt();
             }
         }
+        // A running Swing timer keeps the event thread alive even after the last window
+        // is disposed, so without this stop the process outlives its window.
+        if (repaint != null) repaint.stop();
         dispose();
     }
 }
