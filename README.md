@@ -6,7 +6,7 @@ fault on the rep it happened: *"Go deeper — 112°, aim for 100°"*, *"Chest up
 61° forward"*, *"Slow the descent."*
 
 > Built for the [Hackster.io **Modern Java in the Wild**](https://www.hackster.io/contests/modern-java-in-the-wild)
-> contest — Best Health Solution.
+> contest — Best Hobby Solution.
 
 **Everything runs locally. No account. No cloud. No API key. $0 to run.**
 
